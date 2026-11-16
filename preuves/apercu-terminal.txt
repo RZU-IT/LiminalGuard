@@ -1,0 +1,5 @@
+  ┌───┐ LiminalGuard 0.1.0-beta.1
+  │ ┌─┘ by RZU Informatique
+  └─┘   AdGuard Home setup
+Mot de passe admin : *****************
+Installation [###################] 100%

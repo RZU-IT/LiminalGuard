@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "password_prompts": 1,
+  "password_echoed": false,
+  "password_mask": "stars",
+  "installed_and_functional": true,
+  "test": "real CLI in pseudo-terminal",
+  "colors": true,
+  "mobile_columns": 40,
+  "raw_json": false,
+  "installer_sha256": "ae3d86e9d625b62c594d4003b6e54644a6925276da83dfda0b9a9df715d6ab42"
+}

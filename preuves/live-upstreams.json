@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "upstreams": [
+    "https://dns.adguard-dns.com/dns-query",
+    "https://dns.quad9.net/dns-query"
+  ],
+  "adult_domain_blocked": true,
+  "dns_udp": true,
+  "dns_tcp": true,
+  "host_dns_unchanged": true,
+  "listen_address": "127.0.0.5",
+  "dns_port": 55335,
+  "web_port": 30035,
+  "installer_sha256": "ae3d86e9d625b62c594d4003b6e54644a6925276da83dfda0b9a9df715d6ab42"
+}
