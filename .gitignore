@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.log
+*.tar.gz
+AdGuardHome.yaml
+*password*
+preuves/*.tmp
+.distribution/
+

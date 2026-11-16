@@ -1,0 +1,21 @@
+LiminalGuard
+
+The RZU installer and its original project files are provided under the MIT
+License included in LICENSE.
+
+AdGuard Home is a separate upstream product. No AdGuard Home executable is
+included in this client ZIP. The installer downloads the official release
+and verifies its pinned SHA256 checksum before activation.
+
+AdGuard Home retains its own license and notices; the MIT License for the
+RZU installer does not replace them.
+
+Upstream source and license:
+https://github.com/AdguardTeam/AdGuardHome/tree/v0.107.80
+https://github.com/AdguardTeam/AdGuardHome/blob/v0.107.80/LICENSE.txt
+
+System dependencies installed through APT retain their respective licenses.
+RZU Informatique is not affiliated with AdGuard.
+
+Original LiminalGuard artwork is covered by the MIT License.
+Developed by RZU Informatique with assistance from OpenAI Codex.
