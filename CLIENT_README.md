@@ -1,4 +1,4 @@
-# LiminalGuard
+# LiminalGuard Linux — Ubuntu / Raspberry Pi OS — bêta
 
 ![LiminalGuard](assets/liminalguard-logo.svg)
 

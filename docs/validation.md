@@ -21,7 +21,7 @@ Les fichiers JSON dans `preuves/` contiennent l’empreinte du script réellemen
 
 ## Correction locale après l’essai Raspberry Pi OS
 
-Le chargement initial de la liste officielle dépassait l’ancienne attente d’environ 20 secondes dans le Pi émulé. Le service démarrait mais l’installation échouait à la vérification. L’attente utilise maintenant une échéance monotone de deux minutes ; une liste absente provoque toujours un échec. Le nouveau test de téléchargement lent et les essais Raspberry Pi OS ont passé avec cette correction. Cette modification locale n’est pas encore publiée dans une nouvelle release.
+Le chargement initial de la liste officielle dépassait l’ancienne attente d’environ 20 secondes dans le Pi émulé. Le service démarrait mais l’installation échouait à la vérification. L’attente utilise maintenant une échéance monotone de deux minutes ; une liste absente provoque toujours un échec. Le nouveau test de téléchargement lent et les essais Raspberry Pi OS ont passé avec cette correction. Cette correction est incluse dans le paquet Linux actualisé du 17 novembre 2026, publié sous le tag de paquetage `v0.1.0-beta.1-linux.1`. La version interne de l’installateur reste `0.1.0-beta.1` ; le suffixe distingue cette révision de distribution sans modifier le script testé.
 
 ## Environnement et limites
 
