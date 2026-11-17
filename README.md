@@ -1,10 +1,12 @@
-# LiminalGuard
+# LiminalGuard — Ubuntu et Raspberry Pi OS
 
 ![LiminalGuard](assets/liminalguard-logo.svg)
 
 Installer AdGuard Home sur un Raspberry Pi, avec un compte personnel et sans historique des requêtes DNS.
 
-Version expérimentale **0.1.0-beta.1**. Installation et DNS vérifiés sous WSL isolé et dans Raspberry Pi OS ARM64 sur un Pi 3B émulé, avec un client DNS séparé et un redémarrage du système. Voir [la validation](docs/validation.md).
+Version **bêta 0.1.0-beta.1** pour Linux. Installation et DNS vérifiés sous WSL isolé et dans Raspberry Pi OS ARM64 sur un Pi 3B émulé, avec un client DNS séparé et un redémarrage du système. Voir [la validation](docs/validation.md).
+
+La version Android est séparée : [LiminalGuard Android — expérimental, en cours de test](https://github.com/RZU-IT/LiminalGuard-Android). Ubuntu a été essayé sous WSL ; ces essais ne constituent pas une validation d’Ubuntu natif sur tous les PC.
 
 ## Installation
 
