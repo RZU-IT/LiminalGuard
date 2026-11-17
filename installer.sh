@@ -645,7 +645,8 @@ class Installer:
             run(['systemctl', 'is-enabled', '--quiet', UNIT])
             run(['systemctl', 'is-active', '--quiet', UNIT])
         error = None
-        for _ in range(40 if wait else 1):
+        deadline = time.monotonic() + (120 if wait else 0)
+        while True:
             try:
                 enabled_filters = [f for f in cfg.get('filters', []) if f.get('enabled')]
                 if not enabled_filters:
@@ -672,7 +673,7 @@ class Installer:
                 break
             except (OSError, SetupError, ValueError) as exc:
                 error = exc
-                if not wait:
+                if not wait or time.monotonic() >= deadline:
                     break
                 time.sleep(0.5)
         if error:

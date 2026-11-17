@@ -1,10 +1,10 @@
 {
-  "tests": 21,
+  "tests": 22,
   "failures": 0,
   "errors": 0,
   "success": true,
   "namespace": "isolated network",
   "upstream": "local fixture, not production DNS",
   "host_dns_unchanged": true,
-  "installer_sha256": "ae3d86e9d625b62c594d4003b6e54644a6925276da83dfda0b9a9df715d6ab42"
+  "installer_sha256": "603cca3415a68e9de5452ca50bcfa46041d660d0c099502fc5d88a987a2e0398"
 }

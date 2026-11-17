@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "installer_sha256": "603cca3415a68e9de5452ca50bcfa46041d660d0c099502fc5d88a987a2e0398",
+  "image": {
+    "url": "https://downloads.raspberrypi.com/raspios_lite_arm64/images/raspios_lite_arm64-2026-10-06/2026-10-06-raspios-trixie-arm64-lite.img.xz",
+    "sha256": "483db18a48da399b5b7022ffae9a07bc6d99daab30e593aedac09b69ff422843",
+    "source": "Official Raspberry Pi OS Lite 64-bit, 2026-10-06, Debian Trixie",
+    "qemu_machine": "raspi3b"
+  },
+  "machine": "QEMU 8.2.2 raspi3b / Cortex-A53, four cores, 1 GiB",
+  "guest": "Raspberry Pi OS Lite ARM64 2026-10-06 / Debian Trixie, official Raspberry Pi ARM64 kernel 6.18.50",
+  "install_mode": "normal installer, real ARM64 release, real systemd service; no --test-mode or host x86 AdGuard substitute",
+  "checks": 30,
+  "checks_summary": [
+    "install",
+    "verify",
+    "service enabled/active",
+    "repair with account and rules preserved",
+    "remove with data preserved",
+    "reinstall",
+    "separate client DNS UDP/TCP and official filter",
+    "API auth required and zero statistics",
+    "guest DNS configuration unchanged",
+    "service and DNS work after guest reboot"
+  ],
+  "emulator_adjustments": [
+    "serial console ttyAMA1",
+    "guest-only hardware watchdog disabled for QEMU",
+    "pre-provisioned DHCP NetworkManager profile; cloud-init and unused networkd disabled to avoid conflicting initialization",
+    "guest-only initial clock seed; no host clock or DNS changes"
+  ],
+  "scope": "Emulated Pi 3B and separate virtual-network client, not physical hardware or the home router",
+  "completed_at": "2026-11-16T18:01:17.132141+01:00"
+}

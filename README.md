@@ -4,7 +4,7 @@
 
 Installer AdGuard Home sur un Raspberry Pi, avec un compte personnel et sans historique des requêtes DNS.
 
-Version expérimentale **0.1.0-beta.1**. Installation et DNS vérifiés sous WSL isolé, binaires ARM exécutés sous émulation. Une carte Raspberry physique reste à valider. Voir [la validation](docs/validation.md).
+Version expérimentale **0.1.0-beta.1**. Installation et DNS vérifiés sous WSL isolé et dans Raspberry Pi OS ARM64 sur un Pi 3B émulé, avec un client DNS séparé et un redémarrage du système. Voir [la validation](docs/validation.md).
 
 ## Installation
 
@@ -36,6 +36,8 @@ Le [guide client](CLIENT_README.md) explique les réglages de la box et du tél�
 - Résolveurs amont AdGuard DNS et Quad9 en HTTPS. Les fournisseurs amont reçoivent les requêtes ; le filtrage ne rend pas la navigation anonyme.
 
 Le script ne change pas le DNS de l’hôte, le pare-feu, le DHCP de la box ou les appareils. Il refuse une installation étrangère et les ports occupés. Un service systemd assure le démarrage automatique.
+
+Le premier chargement des listes peut prendre du temps. L’installation attend leur disponibilité jusqu’à deux minutes et signale un échec si les vérifications ne passent pas.
 
 ## Maintenance
 

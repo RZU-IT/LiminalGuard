@@ -58,6 +58,6 @@ Historique des requêtes et statistiques désactivés ; petit journal technique 
 
 Le DNS ne bloque pas toutes les publicités, notamment celles intégrées aux vidéos. Un appareil utilisant son propre DNS chiffré peut contourner le filtrage.
 
-Cette version bêta a passé ses tests sous WSL et avec les vrais binaires ARM sous émulation. Une installation sur Raspberry physique, son redémarrage et les réglages d’un appareil client restent à valider.
+Cette version bêta a passé ses tests sous WSL et dans Raspberry Pi OS ARM64 sur un Pi 3B émulé : installation, réparation, désinstallation/réinstallation, client DNS séparé et service après redémarrage. L’émulation ne valide pas la carte SD, l’alimentation, le Wi-Fi ou les réglages de votre box.
 
 Licence du script et du logo : **MIT**, voir LICENSE. AdGuard Home conserve sa propre licence, voir NOTICE.txt. LiminalGuard est indépendant d’AdGuard.

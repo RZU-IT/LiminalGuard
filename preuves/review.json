@@ -2,5 +2,5 @@
   "success": true,
   "tests": 6,
   "scope": "code review checks only; no installation, service or DNS changes",
-  "installer_sha256": "ae3d86e9d625b62c594d4003b6e54644a6925276da83dfda0b9a9df715d6ab42"
+  "installer_sha256": "603cca3415a68e9de5452ca50bcfa46041d660d0c099502fc5d88a987a2e0398"
 }

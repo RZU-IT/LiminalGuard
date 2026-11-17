@@ -29,6 +29,9 @@ RESULT = PROJECT / 'preuves' / 'integration.json'
 
 class FilterHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
+        if self.path == '/slow-filter.txt':
+            import time
+            time.sleep(25)
         if self.path == '/missing.txt':
             self.send_error(404)
             return
@@ -299,6 +302,26 @@ class ArmBinaryTests(unittest.TestCase):
                         invoke('remove', *args)
                     password.unlink(missing_ok=True)
 
+class SlowFilterTests(unittest.TestCase):
+    def test_slow_filter_download_completes_before_success(self):
+        root = pathlib.Path('/tmp/rzu-adguard-slow-filter-' + str(os.getpid()))
+        password = pathlib.Path('/tmp/rzu-adguard-slow-password-' + str(os.getpid()))
+        password.write_text('Slow-filter-test-password-473!')
+        password.chmod(0o600)
+        args = ['--json', '--test-mode', '--test-no-external-checks', '--test-root', str(root), '--ip', '127.0.0.6',
+                '--archive', str(CACHE / 'amd64.tar.gz'), '--upstream', 'udp://127.0.0.1:10053',
+                '--filter-url', 'http://127.0.0.1:10080/slow-filter.txt', '--password-file', str(password)]
+        try:
+            result = invoke('install', *args, timeout=150)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual(api.dns_probe('127.0.0.6', 'ads.rzu.invalid'), ['0.0.0.0'])
+            self.assertTrue((root / 'work/data/filters/1.txt').is_file())
+        finally:
+            if root.exists() and (root / api.MARKER).exists():
+                invoke('remove', *args)
+            password.unlink(missing_ok=True)
+
+
 class FailedInstallTests(unittest.TestCase):
     def test_missing_filter_never_reports_success(self):
         root = pathlib.Path('/tmp/rzu-adguard-failed-filter-' + str(os.getpid()))
@@ -309,7 +332,7 @@ class FailedInstallTests(unittest.TestCase):
                 '--archive', str(CACHE / 'amd64.tar.gz'), '--upstream', 'udp://127.0.0.1:10053',
                 '--filter-url', 'http://127.0.0.1:10080/missing.txt', '--password-file', str(password)]
         try:
-            result = invoke('install', *args, timeout=55)
+            result = invoke('install', *args, timeout=150)
             self.assertNotEqual(result.returncode, 0)
             self.assertIn('pas encore telechargee', result.stderr)
             self.assertNotIn('Failure-only-test-password-473!', result.stdout + result.stderr)
@@ -372,6 +395,7 @@ if __name__ == '__main__':
         threading.Thread(target=server.serve_forever, daemon=True).start()
     suite = unittest.TestSuite([unittest.defaultTestLoader.loadTestsFromTestCase(PureTests),
                                unittest.defaultTestLoader.loadTestsFromTestCase(RealBinaryTests),
+                               unittest.defaultTestLoader.loadTestsFromTestCase(SlowFilterTests),
                                unittest.defaultTestLoader.loadTestsFromTestCase(FailedInstallTests),
                                unittest.defaultTestLoader.loadTestsFromTestCase(ArmBinaryTests),
                                unittest.defaultTestLoader.loadTestsFromTestCase(SystemdTests)])
